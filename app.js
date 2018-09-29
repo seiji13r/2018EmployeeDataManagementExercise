@@ -45,6 +45,10 @@ firebase.initializeApp(config);
 
   });
 
+  // functions
+  function monthsWorked(date) {
+    return moment(date).toNow();
+  }
   // Firebase watcher .on("child_added"
   database.ref().on("child_added", function(snapshot) {
 
@@ -57,6 +61,7 @@ firebase.initializeApp(config);
     let startDateTd = $("<td>");
     startDateTd.text(snapshot.val().startDate)
     let monthsWorkedTd = $("<td>");
+    monthsWorkedTd.text(monthsWorked(snapshot.val().startDate));
     let monthlyRateTd = $("<td>");
     monthlyRateTd.text(snapshot.val().monthlyRate)
     let totalBilledTd = $("<td>");
