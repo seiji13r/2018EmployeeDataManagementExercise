@@ -16,9 +16,9 @@ firebase.initializeApp(config);
 
   // Initial Values
   var name = "";
-  var email = "";
-  var age = 0;
-  var comment = "";
+  var role = "";
+  var startDate = "";
+  var monthlyRate = "";
 
   // Capture Button Click
   $("#add-employee").on("click", function(event) {
