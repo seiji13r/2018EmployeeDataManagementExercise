@@ -47,7 +47,8 @@ firebase.initializeApp(config);
 
   // functions
   function monthsWorked(date) {
-    return moment(date).toNow();
+    // return moment(date).toNow();
+    return moment(date, "YYYY-MM-DD").diff(moment(), "months");
   }
   // Firebase watcher .on("child_added"
   database.ref().on("child_added", function(snapshot) {
