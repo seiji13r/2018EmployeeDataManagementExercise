@@ -41,6 +41,8 @@ firebase.initializeApp(config);
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
+    alert("Employee Successfully Added");
+
   });
 
   // Firebase watcher .on("child_added"
