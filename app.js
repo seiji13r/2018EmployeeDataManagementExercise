@@ -23,6 +23,7 @@ firebase.initializeApp(config);
   // Capture Button Click
   $("#add-employee").on("click", function(event) {
     event.preventDefault();
+    console.log("Entre a firebase");
 
     // Grabbed values from text boxes
     name = $("#input-name").val().trim();
