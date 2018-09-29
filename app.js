@@ -47,20 +47,28 @@ firebase.initializeApp(config);
 
   // Firebase watcher .on("child_added"
   database.ref().on("child_added", function(snapshot) {
-    // // storing the snapshot.val() in a variable for convenience
-    // var sv = snapshot.val();
 
-    // // Console.loging the last user's data
-    // console.log(sv.name);
-    // console.log(sv.email);
-    // console.log(sv.age);
-    // console.log(sv.comment);
+    let row = $("<tr>");
+    row.addClass("row-class");
+    let nameTd = $("<td>");
+    nameTd.text(snapshot.val().name);
+    let roleTd = $("<td>");
+    roleTd.text(snapshot.val().role);
+    let startDateTd = $("<td>");
+    startDateTd.text(snapshot.val().startDate)
+    let monthsWorkedTd = $("<td>");
+    let monthlyRateTd = $("<td>");
+    monthlyRateTd.text(snapshot.val().monthlyRate)
+    let totalBilledTd = $("<td>");
 
-    // // Change the HTML to reflect
-    // $("#name-display").text(sv.name);
-    // $("#email-display").text(sv.email);
-    // $("#age-display").text(sv.age);
-    // $("#comment-display").text(sv.comment);
+    row.append(nameTd);
+    row.append(roleTd);
+    row.append(startDateTd);
+    row.append(monthsWorkedTd);
+    row.append(monthlyRateTd);
+    row.append(totalBilledTd);
+
+    row.appendTo("#tbody");
 
     // Handle the errors
   }, function(errorObject) {
@@ -69,29 +77,6 @@ firebase.initializeApp(config);
 
 
 //   LAST CODE EXPLAINED
-// // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
-// dataRef.ref().on("child_added", function(childSnapshot) {
-
-//     // Log everything that's coming out of snapshot
-//     console.log(childSnapshot.val().name);
-//     console.log(childSnapshot.val().name);
-//     console.log(childSnapshot.val().email);
-//     console.log(childSnapshot.val().age);
-//     console.log(childSnapshot.val().comment);
-//     console.log(childSnapshot.val().joinDate);
-
-//     // full list of items to the well
-//     $("#full-member-list").append("<div class='well'><span class='member-name'> " +
-//       childSnapshot.val().name +
-//       " </span><span class='member-email'> " + childSnapshot.val().email +
-//       " </span><span class='member-age'> " + childSnapshot.val().age +
-//       " </span><span class='member-comment'> " + childSnapshot.val().comment +
-//       " </span></div>");
-
-//     // Handle the errors
-//   }, function(errorObject) {
-//     console.log("Errors handled: " + errorObject.code);
-//   });
 
 //   dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 //     // Change the HTML to reflect
